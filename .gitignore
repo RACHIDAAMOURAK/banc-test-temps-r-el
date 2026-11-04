@@ -1,3 +1,6 @@
 jitter
 latences.csv
 latences_*.csv
+percentiles
+deadline
+test_stats

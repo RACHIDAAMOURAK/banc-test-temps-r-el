@@ -1,15 +1,25 @@
 CC     = gcc
 CFLAGS = -Wall -Wextra -O2
 
-all: jitter
+all: jitter percentiles deadline
 
 jitter: jitter.c
 	$(CC) $(CFLAGS) -o jitter jitter.c
 
+percentiles: percentiles.c stats.c stats.h
+	$(CC) $(CFLAGS) -o percentiles percentiles.c stats.c -lm
+
+deadline: deadline.c stats.c stats.h
+	$(CC) $(CFLAGS) -o deadline deadline.c stats.c -lm
+
 run: jitter
 	./jitter
 
-clean:
-	rm -f jitter latences.csv
+test: test_stats.c stats.c stats.h
+	$(CC) $(CFLAGS) -o test_stats test_stats.c stats.c -lm
+	./test_stats
 
-.PHONY: all run clean
+clean:
+	rm -f jitter percentiles deadline test_stats *.csv
+
+.PHONY: all run test clean
