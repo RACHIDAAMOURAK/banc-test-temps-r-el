@@ -20,6 +20,8 @@
 #define NSEC_PER_SEC 1000000000LL
 
 /* Structure attendue par le noyau (pas definie dans la libc) */
+/* Depuis la glibc 2.41, elle est deja definie dans <sched.h>. */
+#if !defined(__GLIBC__) || __GLIBC__ < 2 || (__GLIBC__ == 2 && __GLIBC_MINOR__ < 41)
 struct sched_attr {
     uint32_t size;
     uint32_t sched_policy;
@@ -30,7 +32,7 @@ struct sched_attr {
     uint64_t sched_deadline;
     uint64_t sched_period;
 };
-
+#endif
 static int sched_setattr_sys(pid_t pid, const struct sched_attr *attr)
 {
     return (int)syscall(SYS_sched_setattr, pid, attr, 0);
