@@ -1,0 +1,36 @@
+RESULTATS SEMAINE 3 - NOYAU STANDARD
+Noyau : 6.12.115+deb13.1-amd64 (PREEMPT_DYNAMIC)
+Systeme : Debian 13 (trixie) dans VirtualBox
+Charge : aucune (sans stress-ng)
+Mesure : 3 lancements par politique, 1000 echantillons, periode 10 ms
+Unite : microsecondes (us)
+
+MEDIANE DES 3 LANCEMENTS
+Politique         P50     P90     P99     Max
+SCHED_OTHER       1026    6577    119072  216485
+SCHED_FIFO (80)   646     1392    3982    9847
+SCHED_RR (80)     715     3773    8154    11671
+SCHED_DEADLINE*   775     -       13654   98210
+
+* deadline mesure l'ecart entre deux reveils (pas le retard par rapport a
+  l'heure prevue) : non comparable aux 3 autres lignes.
+
+VALEURS BRUTES (P50 / P90 / P99 / Max)
+other_1     597.6   1171.5   3052.3    6298.7
+other_2     1426.1  12597.3  231598.4  314510.0
+other_3     1025.9  6577.1   119072.3  216485.1
+fifo_1      539.9   1333.2   3982.1    8607.0
+fifo_2      646.2   3963.1   7927.2    12095.1
+fifo_3      699.5   1391.9   3152.2    9846.8
+rr_1        714.9   3887.4   8540.1    10965.1
+rr_2        641.2   3773.4   8154.4    14175.6
+rr_3        1236.4  3157.3   7456.0    11670.7
+deadline_1  836.0   -        12856.1   288777.8
+deadline_2  729.0   7255.5   13654.2   22056.7
+deadline_3  774.9   6342.2   15013.8   98209.8
+
+OBSERVATIONS
+- SCHED_FIFO et SCHED_RR reduisent fortement le pire cas (P99 de 4 a 8 ms
+  contre 119 ms pour SCHED_OTHER).
+- SCHED_OTHER est tres irregulier d'un lancement a l'autre.
+- Limite : mesures faites dans une VM (pauses de l'hote Windows).
