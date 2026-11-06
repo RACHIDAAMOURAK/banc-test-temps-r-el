@@ -1,0 +1,10 @@
+Latence d'interruption simulee : recepteur en rr (priorite 80)
+Echantillons : 1000
+min  :      5.8 us
+moy  :    124.7 us
+P50  :     25.7 us
+P90  :    371.6 us
+P99  :    676.5 us
+P99.9:   1080.0 us
+max  :   1089.1 us
+Mesures enregistrees dans latences_irq_rr.csv
