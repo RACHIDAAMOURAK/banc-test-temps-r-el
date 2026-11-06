@@ -1,0 +1,33 @@
+RESULTATS SEMAINE 3 - LATENCE D'INTERRUPTION SIMULEE (irq_sim)
+Systeme : Ubuntu dans VirtualBox, noyau 7.0.0-42-generic (noyau standard)
+Mesure  : 1000 echantillons par lancement, evenement toutes les 10 ms
+Unite   : microsecondes (us). Valeurs brutes, un lancement par valeur.
+
+SANS CHARGE (P50 / P99)
+other   P50 : 26.1  22.2  22.8      P99 : 454.1  532.9  1261.0
+fifo 80 P50 : 19.7  23.6  153.7     P99 : 273.4  450.7  632.5
+
+CHARGE stress-ng --cpu 2 (P50 / P99)
+other   P50 : 15.5  24.0  19.9      P99 : 427.9  1564.5  1177.8
+fifo 80 P50 : 18.6  123.3  25.9     P99 : 178.5  794.3   476.2
+
+CHARGE stress-ng --cpu 8 (P50 / P99)
+other   P50 : 18.0  17.2  19.8      P99 : 2489.0  1706.3  1942.2
+fifo 80 P50 : 142.1  141.4  15.1    P99 : 491.0   456.1   108.5
+
+AFFINITE, fifo 80, 5 lancements sans charge (P50 / P99)
+avec taskset -c 0 : P50 : 19.3 24.3 23.0 21.5 21.2
+                    P99 : 185.7 379.2 277.4 311.4 241.6
+sans taskset      : P50 : 211.6 45.3 124.7 182.7 165.4
+                    P99 : 1338.9 538.9 753.4 534.4 888.5
+
+OBSERVATIONS
+- Sans charge, other et fifo sont du meme ordre (P50 de 20 a 25 us) ;
+  la variabilite entre lancements est plus grande que l'ecart entre politiques.
+- Sous forte charge (--cpu 8), le P99 de other est d'environ 1.9 ms contre
+  environ 0.5 ms pour fifo, sans chevauchement sur 3 lancements.
+- Le P50 de fifo oscille entre deux niveaux (environ 15-25 us et environ 140 us).
+  Avec les deux processus sur un meme coeur (taskset), ce second niveau
+  disparait : attribue au cout du reveil d'un processus sur l'autre coeur
+  dans la VM (hypothese non verifiee directement).
+- Limite : mesures faites dans une VM (pauses de l'hote Windows).
