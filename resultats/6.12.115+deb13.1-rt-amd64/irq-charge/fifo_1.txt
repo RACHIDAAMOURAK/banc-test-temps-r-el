@@ -1,0 +1,10 @@
+Latence d'interruption simulee : recepteur en fifo (priorite 80)
+Echantillons : 1000
+min  :     12.1 us
+moy  :     23.6 us
+P50  :     17.2 us
+P90  :     24.2 us
+P99  :     46.0 us
+P99.9:    331.4 us
+max  :   4006.3 us
+Mesures enregistrees dans latences_irq_fifo.csv

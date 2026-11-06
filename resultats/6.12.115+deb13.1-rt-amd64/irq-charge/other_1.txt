@@ -1,0 +1,10 @@
+Latence d'interruption simulee : recepteur en other
+Echantillons : 1000
+min  :      2.0 us
+moy  :  35830.0 us
+P50  :    340.2 us
+P90  :   1185.0 us
+P99  :  19194.7 us
+P99.9:  23519.4 us
+max  : 34560560.4 us
+Mesures enregistrees dans latences_irq_other.csv
