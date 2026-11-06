@@ -61,3 +61,11 @@ Pour forcer les deux processus sur le même cœur (affinité) :
 Les mesures sont faites dans une machine virtuelle : les pauses de l'hôte
 et le coût des réveils entre cœurs influencent les résultats. Toujours
 préciser le noyau (`uname -r`) lors d'une comparaison.
+
+## Mesures S3 : noyau standard et PREEMPT_RT
+- Machine : VM Debian 13 (VirtualBox), noyaux `6.12.115+deb13.1-amd64` (PREEMPT_DYNAMIC) et `6.12.115+deb13.1-rt-amd64` (PREEMPT_RT)
+- Jitter : `./campagne.sh sans-charge` puis `./campagne.sh charge` (3 lancements par politique : OTHER, FIFO 80, RR 80, DEADLINE)
+- Latence d'interruption simulée : `./irq_campagne.sh` (avec charge) ; la série sans charge a été lancée à la main avec `./irq_sim`, `./irq_sim fifo 80` et `./irq_sim rr 80`
+- Charge : `stress-ng --cpu 2`
+- Résultats bruts : `resultats/<noyau>/{sans-charge,charge,irq,irq-charge}/`
+- Limite : les pauses de la VM (hôte Windows) faussent certains lancements, qui sont écartés de l'analyse quand leur max dépasse 100 ms
