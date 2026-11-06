@@ -4,14 +4,21 @@ MODE=${1:-sans-charge}
 OUT="resultats/$(uname -r)/$MODE"
 mkdir -p "$OUT"
 sudo -v || exit 1
-
-if [ "$MODE" = "charge" ]; then
-    stress-ng --cpu 2 --timeout 600s >/dev/null 2>&1 &
-    STRESS=$!
+STRESS=""
+case "$MODE" in
+    charge)
+        stress-ng --cpu 2 --timeout 600s >/dev/null 2>&1 &
+        STRESS=$!
+        ;;
+    charge-io)
+        stress-ng --io 2 --hdd 1 --hdd-bytes 200M --temp-path "$HOME" --timeout 600s >/dev/null 2>&1 &
+        STRESS=$!
+        ;;
+esac
+if [ -n "$STRESS" ]; then
     trap 'kill $STRESS 2>/dev/null' EXIT
     sleep 3
 fi
-
 for i in 1 2 3; do
     echo "=== Lancement $i ==="
     ./jitter > "$OUT/other_$i.txt"

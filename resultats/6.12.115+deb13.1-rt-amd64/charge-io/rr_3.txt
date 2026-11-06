@@ -1,0 +1,14 @@
+Politique    : SCHED_RR (priorite 80)
+Echantillons : 1000 (periode 10000 us)
+Latence min  : 54.6 us
+Latence moy  : 7870.0 us
+Latence max  : 221059.5 us
+Mesures enregistrees dans latences_rr.csv
+Fichier : latences_rr.csv (1000 echantillons)
+min  :     54.6 us
+moy  :   7870.0 us
+P50  :    757.8 us
+P90  :   8032.4 us
+P99  : 150281.8 us
+P99.9: 212413.4 us
+max  : 221059.5 us
