@@ -1,14 +1,14 @@
 Politique    : SCHED_OTHER
 Echantillons : 1000 (periode 10000 us)
-Latence min  : 234.0 us
-Latence moy  : 380257419.3 us
-Latence max  : 576735923.0 us
+Latence min  : 541.4 us
+Latence moy  : 259261437.4 us
+Latence max  : 314430916.5 us
 Mesures enregistrees dans latences_other.csv
 Fichier : latences_other.csv (1000 echantillons)
-min  :    234.0 us
-moy  : 380257419.3 us
-P50  : 571996575.7 us
-P90  : 575794557.9 us
-P99  : 576641967.6 us
-P99.9: 576726248.9 us
-max  : 576735923.0 us
+min  :    541.4 us
+moy  : 259261437.4 us
+P50  : 309570727.2 us
+P90  : 313466016.3 us
+P99  : 314334714.8 us
+P99.9: 314421174.9 us
+max  : 314430916.5 us

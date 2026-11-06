@@ -1,10 +1,10 @@
 SCHED_DEADLINE : runtime 2 ms, deadline 10 ms, periode 10 ms
 (jitter = |intervalle entre deux reveils - periode|)
-min  :      1.1 us
-moy  :    949.7 us
-P50  :    434.8 us
-P90  :   2228.5 us
-P99  :   7587.6 us
-P99.9:   9995.7 us
-max  :  10060.7 us
+min  :      1.4 us
+moy  :   1122.3 us
+P50  :    557.8 us
+P90  :   1937.1 us
+P99  :   7221.6 us
+P99.9:  40006.7 us
+max  : 113942.3 us
 Mesures enregistrees dans latences_deadline.csv

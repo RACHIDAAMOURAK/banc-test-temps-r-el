@@ -1,14 +1,14 @@
 Politique    : SCHED_FIFO (priorite 80)
 Echantillons : 1000 (periode 10000 us)
-Latence min  : 130.3 us
-Latence moy  : 2588.8 us
-Latence max  : 163583.7 us
+Latence min  : 104.6 us
+Latence moy  : 116147200.6 us
+Latence max  : 255308226.2 us
 Mesures enregistrees dans latences_fifo.csv
 Fichier : latences_fifo.csv (1000 echantillons)
-min  :    130.3 us
-moy  :   2588.8 us
-P50  :   1059.8 us
-P90  :   1804.2 us
-P99  :  65902.5 us
-P99.9: 153910.0 us
-max  : 163583.7 us
+min  :    104.6 us
+moy  : 116147200.6 us
+P50  : 96042426.6 us
+P90  : 152573634.2 us
+P99  : 255212851.6 us
+P99.9: 255298571.0 us
+max  : 255308226.2 us
