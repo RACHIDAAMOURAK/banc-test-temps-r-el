@@ -69,3 +69,14 @@ préciser le noyau (`uname -r`) lors d'une comparaison.
 - Charge : `stress-ng --cpu 2`
 - Résultats bruts : `resultats/<noyau>/{sans-charge,charge,irq,irq-charge}/`
 - Limite : les pauses de la VM (hôte Windows) faussent certains lancements, qui sont écartés de l'analyse quand leur max dépasse 100 ms
+
+## mlockall et affinité (S4)
+
+    sudo ./irq_sim fifo 80 mlock     # mlockall : mémoire verrouillée en RAM
+    sudo ./jitter fifo 80 mlock      # idem pour jitter
+    ./mlock_campagne.sh [essais]     # avec/sans mlockall (mesures alternées, 2 placements)
+    ./affinite.sh [essais]           # taskset et affinité des IRQ (2 CPU minimum)
+    python3 resume_csv.py <csv>      # médiane par groupe d'un CSV de campagne
+
+Les scripts ne se lancent pas avec sudo (ils appellent sudo eux-mêmes).
+Résultats : `resultats/<noyau>/s4-mlock/` et `resultats/<noyau>/s4-affinite/`.

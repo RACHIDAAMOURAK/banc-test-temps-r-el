@@ -8,13 +8,17 @@
 #include <sched.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <sys/mman.h>
+#include <sys/resource.h>
 #include "stats.h"
 
 /*
  * Simulation de latence d'interruption.
- *   ./irq_sim                 -> recepteur en SCHED_OTHER
- *   sudo ./irq_sim fifo 80    -> recepteur en SCHED_FIFO, priorite 80
- *   sudo ./irq_sim rr 80      -> recepteur en SCHED_RR,   priorite 80
+ *   ./irq_sim                    -> recepteur en SCHED_OTHER
+ *   sudo ./irq_sim fifo 80       -> recepteur en SCHED_FIFO, priorite 80
+ *   sudo ./irq_sim rr 80         -> recepteur en SCHED_RR,   priorite 80
+ *   sudo ./irq_sim fifo 80 mlock -> idem + mlockall (memoire verrouillee)
+ *   sudo ./irq_sim other mlock   -> SCHED_OTHER + mlockall
  * Un generateur (processus fils) envoie son heure t0 dans un tube
  * toutes les 10 ms ; le recepteur mesure t1 - t0.
  */
@@ -28,6 +32,21 @@ static int64_t now_ns(void)
     struct timespec t;
     clock_gettime(CLOCK_MONOTONIC, &t);
     return (int64_t)t.tv_sec * NSEC_PER_SEC + t.tv_nsec;
+}
+
+/* Memoire verrouillee du processus (ligne VmLck de /proc/self/status) */
+static long vmlck_kb(void)
+{
+    FILE *f = fopen("/proc/self/status", "r");
+    char ligne[128];
+    long kb = -1;
+    if (!f)
+        return -1;
+    while (fgets(ligne, sizeof ligne, f))
+        if (sscanf(ligne, "VmLck: %ld kB", &kb) == 1)
+            break;
+    fclose(f);
+    return kb;
 }
 
 /* Processus "materiel" : emet un evenement toutes les 10 ms */
@@ -60,16 +79,23 @@ int main(int argc, char *argv[])
     int prio = 0;
     const char *tag = "other";
 
+    /* L'option "mlock" peut etre placee n'importe ou apres le programme */
+    int use_mlock = 0;
+    for (int k = 1; k < argc; k++)
+        if (strcmp(argv[k], "mlock") == 0)
+            use_mlock = 1;
+
     if (argc > 1) {
         if (strcmp(argv[1], "fifo") == 0)       { policy = SCHED_FIFO; tag = "fifo"; }
         else if (strcmp(argv[1], "rr") == 0)    { policy = SCHED_RR;   tag = "rr"; }
-        else if (strcmp(argv[1], "other") != 0) {
-            fprintf(stderr, "Usage : %s [other|fifo|rr] [priorite 1-99]\n", argv[0]);
+        else if (strcmp(argv[1], "other") != 0 && strcmp(argv[1], "mlock") != 0) {
+            fprintf(stderr, "Usage : %s [other|fifo|rr] [priorite 1-99] [mlock]\n", argv[0]);
             return 1;
         }
     }
+
     if (policy != SCHED_OTHER)
-        prio = (argc > 2) ? atoi(argv[2]) : 80;
+        prio = (argc > 2 && strcmp(argv[2], "mlock") != 0) ? atoi(argv[2]) : 80;
 
     int fd[2];
     if (pipe(fd) == -1) {
@@ -92,6 +118,17 @@ int main(int argc, char *argv[])
     /* pere : le recepteur */
     close(fd[1]);
 
+    if (use_mlock) {
+        if (mlockall(MCL_CURRENT | MCL_FUTURE) == -1) {
+            fprintf(stderr, "mlockall a echoue : %s (lancer avec sudo)\n",
+                    strerror(errno));
+            close(fd[0]);
+            waitpid(pid, NULL, 0);
+            return 1;
+        }
+        printf("mlockall OK : %ld kB verrouilles\n", vmlck_kb());
+    }
+
     if (policy != SCHED_OTHER) {
         struct sched_param sp;
         memset(&sp, 0, sizeof sp);
@@ -105,6 +142,9 @@ int main(int argc, char *argv[])
         }
     }
 
+    struct rusage r0, r1;
+    getrusage(RUSAGE_SELF, &r0);
+
     int n = 0;
     while (n < N_SAMPLES) {
         int64_t t0;
@@ -113,6 +153,8 @@ int main(int argc, char *argv[])
             break;
         lat[n++] = now_ns() - t0;                  /* t1 - t0 */
     }
+
+    getrusage(RUSAGE_SELF, &r1);
     close(fd[0]);
     waitpid(pid, NULL, 0);
 
@@ -124,6 +166,7 @@ int main(int argc, char *argv[])
 
     printf("Latence d'interruption simulee : recepteur en %s", tag);
     if (policy != SCHED_OTHER) printf(" (priorite %d)", prio);
+    if (use_mlock) printf(" + mlockall");
     printf("\nEchantillons : %d\n", n);
     printf("min  : %8.1f us\n", s.min  / 1000.0);
     printf("moy  : %8.1f us\n", s.mean / 1000.0);
@@ -132,6 +175,8 @@ int main(int argc, char *argv[])
     printf("P99  : %8.1f us\n", s.p99  / 1000.0);
     printf("P99.9: %8.1f us\n", s.p999 / 1000.0);
     printf("max  : %8.1f us\n", s.max  / 1000.0);
+    printf("Fautes_mineures : %ld\n", r1.ru_minflt - r0.ru_minflt);
+    printf("Fautes_majeures : %ld\n", r1.ru_majflt - r0.ru_majflt);
 
     char nom[64];
     snprintf(nom, sizeof nom, "latences_irq_%s.csv", tag);
