@@ -50,6 +50,14 @@ FICHIER_RE = re.compile(r"^(other|fifo|rr|deadline)_(\d+)\.txt$")
 # --------------------------------------------------------------------------
 # Lecture des resultats
 # --------------------------------------------------------------------------
+IGNORER = []   # sous-chaines de noms de noyaux a ignorer (rempli dans main)
+
+
+def noyaux_retenus(racine):
+    return sorted(p for p in racine.iterdir()
+                  if p.is_dir() and not any(x in p.name for x in IGNORER))
+
+
 def type_noyau(nom):
     return "PREEMPT_RT" if "-rt" in nom else "standard"
 
@@ -83,7 +91,7 @@ def resumer_serie(lancements):
 def collecter_series(racine):
     """Retourne {(noyau, mode, politique): [stats, ...]}."""
     series = {}
-    for dossier_noyau in sorted(p for p in racine.iterdir() if p.is_dir()):
+    for dossier_noyau in noyaux_retenus(racine):
         for mode in MODES:
             dossier_mode = dossier_noyau / mode
             if not dossier_mode.is_dir():
@@ -131,7 +139,7 @@ def lire_csv_groupe(chemin):
 
 def collecter_csv(racine, sous_dossier):
     resultat = {}
-    for dossier_noyau in sorted(p for p in racine.iterdir() if p.is_dir()):
+    for dossier_noyau in noyaux_retenus(racine):
         chemin = dossier_noyau / sous_dossier / "resultats.csv"
         if chemin.is_file():
             resultat[dossier_noyau.name] = lire_csv_groupe(chemin)
@@ -342,7 +350,11 @@ def main():
                     help="dossier de sortie (defaut : rapport)")
     ap.add_argument("--sans-pauses", action="store_true",
                     help="utiliser la mediane des lancements sans pause (max <= 100 ms)")
+    ap.add_argument("--tout", action="store_true",
+                    help="inclure aussi les noyaux d'une autre machine (ex. Ubuntu '-generic')")
     args = ap.parse_args()
+    if not args.tout:
+        IGNORER.append("generic")
 
     racine = Path(args.resultats)
     if not racine.is_dir():
