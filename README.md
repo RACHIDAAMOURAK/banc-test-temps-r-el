@@ -80,3 +80,29 @@ préciser le noyau (`uname -r`) lors d'une comparaison.
 
 Les scripts ne se lancent pas avec sudo (ils appellent sudo eux-mêmes).
 Résultats : `resultats/<noyau>/s4-mlock/` et `resultats/<noyau>/s4-affinite/`.
+
+## Demonstration et rapport automatise
+
+### Demonstration
+
+```bash
+make
+./demo.sh
+```
+
+`demo.sh` se deroule en 7 etapes (Entree pour passer a la suivante) : noyau en cours, jitter SCHED_OTHER puis FIFO, latence d'interruption simulee (`irq_sim`) sans puis avec `mlockall`, tableau des resultats de campagne, rapport automatise. Les etapes de temps reel necessitent `sudo`.
+
+### Rapport automatise (JSON + graphiques)
+
+```bash
+sudo apt install python3-matplotlib
+python3 rapport.py --sans-pauses --seuil-ms 50
+```
+
+Genere dans `rapport/` : `rapport.json` (statistiques par serie), `rapport.md` (tableaux) et des graphiques PNG (jitter par mode, `mlockall.png`, `affinite.png`). Un lancement dont le maximum depasse le seuil est considere comme une pause de la VM et ecarte de la mediane ; le nombre d'ecartes est indique dans la colonne « Suspects ».
+
+Options : `--seuil-ms N` (seuil en ms, defaut 100), `--sans-pauses` (mediane des lancements sans pause), `--tout` (inclure aussi les dossiers d'une autre machine).
+
+### Limites des mesures
+
+Les mesures sont faites dans une machine virtuelle (VirtualBox) : les pauses de l'hote perturbent certains lancements, et la latence d'interruption est simulee (pas de GPIO reel).
