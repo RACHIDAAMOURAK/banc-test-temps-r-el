@@ -1,0 +1,1513 @@
+{
+  "genere_le": "2026-11-18T10:32:16",
+  "unite": "us",
+  "seuil_pause_us": 50000.0,
+  "noyaux": [
+    {
+      "nom": "6.12.115+deb13.1-amd64",
+      "type": "standard"
+    },
+    {
+      "nom": "6.12.115+deb13.1-rt-amd64",
+      "type": "PREEMPT_RT"
+    }
+  ],
+  "series": [
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge",
+      "politique": "deadline",
+      "n_lancements": 3,
+      "n_suspects": 1,
+      "mediane": {
+        "min": 1.1,
+        "moy": 685.9,
+        "P50": 373.1,
+        "P90": 1387.3,
+        "P99": 4920.9,
+        "P99.9": 7759.0,
+        "max": 12174.1
+      },
+      "mediane_sans_pauses": {
+        "min": 0.6000000000000001,
+        "moy": 663.95,
+        "P50": 372.15,
+        "P90": 1263.0,
+        "P99": 4864.549999999999,
+        "P99.9": 6631.3,
+        "max": 8877.95
+      },
+      "meilleur_lancement": {
+        "min": 0.1,
+        "moy": 685.9,
+        "P50": 373.1,
+        "P90": 1387.3,
+        "P99": 4920.9,
+        "P99.9": 5503.6,
+        "max": 5581.8
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 104.6,
+        "moy": 8806.4,
+        "P50": 1157.9,
+        "P90": 18558.1,
+        "P99": 146775.3,
+        "P99.9": 163005.4,
+        "max": 167636.0
+      },
+      "mediane_sans_pauses": {
+        "min": 112.4,
+        "moy": 1602.6,
+        "P50": 1157.9,
+        "P90": 3246.7,
+        "P99": 6918.0,
+        "P99.9": 7859.5,
+        "max": 7894.8
+      },
+      "meilleur_lancement": {
+        "min": 112.4,
+        "moy": 1602.6,
+        "P50": 1157.9,
+        "P90": 3246.7,
+        "P99": 6918.0,
+        "P99.9": 7859.5,
+        "max": 7894.8
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 1,
+      "mediane": {
+        "min": 135.0,
+        "moy": 1634.0,
+        "P50": 1185.7,
+        "P90": 3506.2,
+        "P99": 7829.5,
+        "P99.9": 9387.6,
+        "max": 11269.5
+      },
+      "mediane_sans_pauses": {
+        "min": 112.25,
+        "moy": 1225.0,
+        "P50": 959.05,
+        "P90": 2459.1,
+        "P99": 5031.5,
+        "P99.9": 6489.25,
+        "max": 7636.6
+      },
+      "meilleur_lancement": {
+        "min": 89.5,
+        "moy": 816.0,
+        "P50": 732.4,
+        "P90": 1412.0,
+        "P99": 2233.5,
+        "P99.9": 3590.9,
+        "max": 4003.7
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 1,
+      "mediane": {
+        "min": 108.6,
+        "moy": 1574.9,
+        "P50": 1069.6,
+        "P90": 3604.4,
+        "P99": 7191.2,
+        "P99.9": 8549.9,
+        "max": 9172.4
+      },
+      "mediane_sans_pauses": {
+        "min": 93.4,
+        "moy": 1413.3000000000002,
+        "P50": 997.0999999999999,
+        "P90": 3139.9,
+        "P99": 6451.45,
+        "P99.9": 7562.65,
+        "max": 8194.55
+      },
+      "meilleur_lancement": {
+        "min": 78.2,
+        "moy": 1251.7,
+        "P50": 924.6,
+        "P90": 2675.4,
+        "P99": 5711.7,
+        "P99.9": 6575.4,
+        "max": 7216.7
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge-io",
+      "politique": "deadline",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 0.8,
+        "moy": 2345.9,
+        "P50": 1016.6,
+        "P90": 5880.8,
+        "P99": 14333.0,
+        "P99.9": 26364.0,
+        "max": 30578.1
+      },
+      "mediane_sans_pauses": {
+        "min": 0.8,
+        "moy": 2345.9,
+        "P50": 1016.6,
+        "P90": 5880.8,
+        "P99": 14333.0,
+        "P99.9": 26364.0,
+        "max": 30578.1
+      },
+      "meilleur_lancement": {
+        "min": 0.8,
+        "moy": 2736.0,
+        "P50": 1261.2,
+        "P90": 7339.3,
+        "P99": 14754.9,
+        "P99.9": 26364.0,
+        "max": 27983.1
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge-io",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 71.8,
+        "moy": 3286.6,
+        "P50": 1217.1,
+        "P90": 6987.1,
+        "P99": 31515.4,
+        "P99.9": 49696.4,
+        "max": 55478.7
+      },
+      "mediane_sans_pauses": {
+        "min": 81.4,
+        "moy": 2156.8,
+        "P50": 1167.9,
+        "P90": 5383.4,
+        "P99": 13032.3,
+        "P99.9": 18597.4,
+        "max": 20394.0
+      },
+      "meilleur_lancement": {
+        "min": 81.4,
+        "moy": 2156.8,
+        "P50": 1167.9,
+        "P90": 5383.4,
+        "P99": 13032.3,
+        "P99.9": 18597.4,
+        "max": 20394.0
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge-io",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 1,
+      "mediane": {
+        "min": 66.3,
+        "moy": 3338.0,
+        "P50": 1317.3,
+        "P90": 7960.9,
+        "P99": 32270.6,
+        "P99.9": 37989.3,
+        "max": 47779.1
+      },
+      "mediane_sans_pauses": {
+        "min": 85.35,
+        "moy": 2739.3,
+        "P50": 1157.45,
+        "P90": 6849.6,
+        "P99": 22790.55,
+        "P99.9": 30206.0,
+        "max": 37265.2
+      },
+      "meilleur_lancement": {
+        "min": 108.9,
+        "moy": 2140.6,
+        "P50": 997.6,
+        "P90": 5738.3,
+        "P99": 13310.5,
+        "P99.9": 22422.7,
+        "max": 26751.3
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "charge-io",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 70.6,
+        "moy": 2874.8,
+        "P50": 1184.6,
+        "P90": 7391.9,
+        "P99": 25660.2,
+        "P99.9": 74162.2,
+        "max": 83952.2
+      },
+      "mediane_sans_pauses": {
+        "min": 70.6,
+        "moy": 2822.1,
+        "P50": 1290.6,
+        "P90": 7391.9,
+        "P99": 17504.3,
+        "P99.9": 29828.8,
+        "max": 38222.2
+      },
+      "meilleur_lancement": {
+        "min": 70.6,
+        "moy": 2822.1,
+        "P50": 1290.6,
+        "P90": 7391.9,
+        "P99": 17504.3,
+        "P99.9": 29828.8,
+        "max": 38222.2
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "irq",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 12.5,
+        "moy": 545.3,
+        "P50": 73.6,
+        "P90": 1435.8,
+        "P99": 5828.9,
+        "P99.9": 9827.3,
+        "max": 10695.2
+      },
+      "mediane_sans_pauses": {
+        "min": 12.5,
+        "moy": 545.3,
+        "P50": 73.6,
+        "P90": 1435.8,
+        "P99": 5828.9,
+        "P99.9": 9827.3,
+        "max": 10695.2
+      },
+      "meilleur_lancement": {
+        "min": 10.8,
+        "moy": 523.8,
+        "P50": 47.3,
+        "P90": 1322.1,
+        "P99": 6882.1,
+        "P99.9": 9827.3,
+        "max": 9860.2
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "irq",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 9.3,
+        "moy": 743.2,
+        "P50": 626.8,
+        "P90": 1415.2,
+        "P99": 3106.1,
+        "P99.9": 8467.8,
+        "max": 11724.8
+      },
+      "mediane_sans_pauses": {
+        "min": 9.3,
+        "moy": 743.2,
+        "P50": 626.8,
+        "P90": 1415.2,
+        "P99": 3106.1,
+        "P99.9": 8467.8,
+        "max": 11724.8
+      },
+      "meilleur_lancement": {
+        "min": 4.0,
+        "moy": 817.1,
+        "P50": 893.7,
+        "P90": 1390.6,
+        "P99": 2460.8,
+        "P99.9": 5766.4,
+        "max": 9892.5
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "irq",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 11.9,
+        "moy": 654.4,
+        "P50": 739.7,
+        "P90": 1233.4,
+        "P99": 2391.9,
+        "P99.9": 4922.4,
+        "max": 9798.2
+      },
+      "mediane_sans_pauses": {
+        "min": 11.9,
+        "moy": 654.4,
+        "P50": 739.7,
+        "P90": 1233.4,
+        "P99": 2391.9,
+        "P99.9": 4922.4,
+        "max": 9798.2
+      },
+      "meilleur_lancement": {
+        "min": 8.7,
+        "moy": 518.0,
+        "P50": 367.5,
+        "P90": 1171.9,
+        "P99": 2391.9,
+        "P99.9": 4922.4,
+        "max": 6381.4
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "irq-charge",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 7.8,
+        "moy": 155.0,
+        "P50": 167.4,
+        "P90": 320.3,
+        "P99": 537.8,
+        "P99.9": 1385.6,
+        "max": 2821.1
+      },
+      "mediane_sans_pauses": {
+        "min": 7.8,
+        "moy": 155.0,
+        "P50": 167.4,
+        "P90": 320.3,
+        "P99": 537.8,
+        "P99.9": 1385.6,
+        "max": 2821.1
+      },
+      "meilleur_lancement": {
+        "min": 15.8,
+        "moy": 46.6,
+        "P50": 25.7,
+        "P90": 75.2,
+        "P99": 332.2,
+        "P99.9": 526.7,
+        "max": 747.5
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "irq-charge",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 4.9,
+        "moy": 1171.9,
+        "P50": 25.4,
+        "P90": 3099.9,
+        "P99": 10338.8,
+        "P99.9": 12711.1,
+        "max": 12999.2
+      },
+      "mediane_sans_pauses": {
+        "min": 4.9,
+        "moy": 1171.9,
+        "P50": 25.4,
+        "P90": 3099.9,
+        "P99": 10338.8,
+        "P99.9": 12711.1,
+        "max": 12999.2
+      },
+      "meilleur_lancement": {
+        "min": 7.2,
+        "moy": 87.0,
+        "P50": 25.4,
+        "P90": 275.5,
+        "P99": 539.4,
+        "P99.9": 1820.0,
+        "max": 3264.5
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "irq-charge",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 3.7,
+        "moy": 166.3,
+        "P50": 165.0,
+        "P90": 371.6,
+        "P99": 676.5,
+        "P99.9": 1180.1,
+        "max": 3046.5
+      },
+      "mediane_sans_pauses": {
+        "min": 3.7,
+        "moy": 166.3,
+        "P50": 165.0,
+        "P90": 371.6,
+        "P99": 676.5,
+        "P99.9": 1180.1,
+        "max": 3046.5
+      },
+      "meilleur_lancement": {
+        "min": 5.8,
+        "moy": 124.7,
+        "P50": 25.7,
+        "P90": 371.6,
+        "P99": 676.5,
+        "P99.9": 1080.0,
+        "max": 1089.1
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "sans-charge",
+      "politique": "deadline",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 0.6,
+        "moy": 2234.2,
+        "P50": 774.9,
+        "P90": 6376.5,
+        "P99": 13654.2,
+        "P99.9": 56249.6,
+        "max": 98209.8
+      },
+      "mediane_sans_pauses": {
+        "min": 0.6,
+        "moy": 2234.2,
+        "P50": 729.0,
+        "P90": 7255.5,
+        "P99": 13654.2,
+        "P99.9": 18864.8,
+        "max": 22056.7
+      },
+      "meilleur_lancement": {
+        "min": 0.6,
+        "moy": 2234.2,
+        "P50": 729.0,
+        "P90": 7255.5,
+        "P99": 13654.2,
+        "P99.9": 18864.8,
+        "max": 22056.7
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "sans-charge",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 60.2,
+        "moy": 801.3,
+        "P50": 646.2,
+        "P90": 1391.9,
+        "P99": 3982.1,
+        "P99.9": 7930.5,
+        "max": 9846.8
+      },
+      "mediane_sans_pauses": {
+        "min": 60.2,
+        "moy": 801.3,
+        "P50": 646.2,
+        "P90": 1391.9,
+        "P99": 3982.1,
+        "P99.9": 7930.5,
+        "max": 9846.8
+      },
+      "meilleur_lancement": {
+        "min": 57.8,
+        "moy": 723.7,
+        "P50": 539.9,
+        "P90": 1333.2,
+        "P99": 3982.1,
+        "P99.9": 7722.2,
+        "max": 8607.0
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "sans-charge",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 66.2,
+        "moy": 4802.9,
+        "P50": 1025.9,
+        "P90": 6577.1,
+        "P99": 119072.3,
+        "P99.9": 206690.0,
+        "max": 216485.1
+      },
+      "mediane_sans_pauses": {
+        "min": 58.0,
+        "moy": 702.9,
+        "P50": 597.6,
+        "P90": 1171.5,
+        "P99": 3052.3,
+        "P99.9": 5535.6,
+        "max": 6298.7
+      },
+      "meilleur_lancement": {
+        "min": 58.0,
+        "moy": 702.9,
+        "P50": 597.6,
+        "P90": 1171.5,
+        "P99": 3052.3,
+        "P99.9": 5535.6,
+        "max": 6298.7
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-amd64",
+      "type_noyau": "standard",
+      "mode": "sans-charge",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 82.3,
+        "moy": 1364.8,
+        "P50": 714.9,
+        "P90": 3773.4,
+        "P99": 8154.4,
+        "P99.9": 10478.2,
+        "max": 11670.7
+      },
+      "mediane_sans_pauses": {
+        "min": 82.3,
+        "moy": 1364.8,
+        "P50": 714.9,
+        "P90": 3773.4,
+        "P99": 8154.4,
+        "P99.9": 10478.2,
+        "max": 11670.7
+      },
+      "meilleur_lancement": {
+        "min": 82.3,
+        "moy": 1364.8,
+        "P50": 714.9,
+        "P90": 3887.4,
+        "P99": 8540.1,
+        "P99.9": 10948.0,
+        "max": 10965.1
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge",
+      "politique": "deadline",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 1.6,
+        "moy": 1005.6,
+        "P50": 499.2,
+        "P90": 1842.7,
+        "P99": 8579.1,
+        "P99.9": 10041.5,
+        "max": 75266.5
+      },
+      "mediane_sans_pauses": {
+        "min": 1.9,
+        "moy": 828.8,
+        "P50": 499.2,
+        "P90": 1842.7,
+        "P99": 5057.8,
+        "P99.9": 5944.8,
+        "max": 9908.0
+      },
+      "meilleur_lancement": {
+        "min": 1.9,
+        "moy": 828.8,
+        "P50": 499.2,
+        "P90": 1842.7,
+        "P99": 5057.8,
+        "P99.9": 5944.8,
+        "max": 9908.0
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 1,
+      "mediane": {
+        "min": 73.4,
+        "moy": 1080.1,
+        "P50": 689.5,
+        "P90": 1302.8,
+        "P99": 4195.9,
+        "P99.9": 23166.1,
+        "max": 32636.4
+      },
+      "mediane_sans_pauses": {
+        "min": 73.45,
+        "moy": 1043.45,
+        "P50": 716.05,
+        "P90": 2144.3,
+        "P99": 5522.200000000001,
+        "P99.9": 13980.449999999999,
+        "max": 18959.5
+      },
+      "meilleur_lancement": {
+        "min": 73.5,
+        "moy": 746.9,
+        "P50": 657.4,
+        "P90": 1302.8,
+        "P99": 2194.8,
+        "P99.9": 4794.8,
+        "max": 5282.6
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 134.2,
+        "moy": 470164.9,
+        "P50": 194126.6,
+        "P90": 1388993.4,
+        "P99": 1777414.7,
+        "P99.9": 1783000.2,
+        "max": 1783029.2
+      },
+      "mediane_sans_pauses": {
+        "min": 117.0,
+        "moy": 1206.5,
+        "P50": 885.9,
+        "P90": 2156.2,
+        "P99": 6464.0,
+        "P99.9": 8687.7,
+        "max": 9344.3
+      },
+      "meilleur_lancement": {
+        "min": 117.0,
+        "moy": 1206.5,
+        "P50": 885.9,
+        "P90": 2156.2,
+        "P99": 6464.0,
+        "P99.9": 8687.7,
+        "max": 9344.3
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 74.7,
+        "moy": 2088.8,
+        "P50": 712.2,
+        "P90": 1413.6,
+        "P99": 57256.9,
+        "P99.9": 138489.1,
+        "max": 146583.6
+      },
+      "mediane_sans_pauses": {
+        "min": 58.7,
+        "moy": 756.5,
+        "P50": 672.9,
+        "P90": 1355.2,
+        "P99": 2009.9,
+        "P99.9": 2966.1,
+        "max": 2984.9
+      },
+      "meilleur_lancement": {
+        "min": 58.7,
+        "moy": 756.5,
+        "P50": 672.9,
+        "P90": 1355.2,
+        "P99": 2009.9,
+        "P99.9": 2966.1,
+        "max": 2984.9
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge-io",
+      "politique": "deadline",
+      "n_lancements": 3,
+      "n_suspects": 3,
+      "mediane": {
+        "min": 0.9,
+        "moy": 3999.8,
+        "P50": 918.0,
+        "P90": 6279.7,
+        "P99": 73327.6,
+        "P99.9": 193146.2,
+        "max": 199644.6
+      },
+      "mediane_sans_pauses": null,
+      "meilleur_lancement": {
+        "min": 0.9,
+        "moy": 3999.8,
+        "P50": 992.2,
+        "P90": 5848.2,
+        "P99": 73327.6,
+        "P99.9": 159786.8,
+        "max": 162108.0
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge-io",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 3,
+      "mediane": {
+        "min": 61.9,
+        "moy": 8335.7,
+        "P50": 892.6,
+        "P90": 16881.9,
+        "P99": 142080.7,
+        "P99.9": 225519.8,
+        "max": 235046.9
+      },
+      "mediane_sans_pauses": null,
+      "meilleur_lancement": {
+        "min": 61.9,
+        "moy": 6201.9,
+        "P50": 892.6,
+        "P90": 11521.4,
+        "P99": 96015.1,
+        "P99.9": 125367.8,
+        "max": 135169.9
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge-io",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 3,
+      "mediane": {
+        "min": 90.6,
+        "moy": 14789.2,
+        "P50": 975.1,
+        "P90": 46617.9,
+        "P99": 172965.2,
+        "P99.9": 248660.7,
+        "max": 258330.7
+      },
+      "mediane_sans_pauses": null,
+      "meilleur_lancement": {
+        "min": 90.6,
+        "moy": 7355.2,
+        "P50": 768.2,
+        "P90": 14453.6,
+        "P99": 126618.2,
+        "P99.9": 161944.7,
+        "max": 171226.0
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "charge-io",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 3,
+      "mediane": {
+        "min": 61.2,
+        "moy": 10834.7,
+        "P50": 1043.7,
+        "P90": 36589.9,
+        "P99": 150149.7,
+        "P99.9": 229766.4,
+        "max": 239416.4
+      },
+      "mediane_sans_pauses": null,
+      "meilleur_lancement": {
+        "min": 59.6,
+        "moy": 10532.9,
+        "P50": 992.5,
+        "P90": 29793.1,
+        "P99": 150149.7,
+        "P99.9": 225996.7,
+        "max": 235766.4
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "irq",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 12.7,
+        "moy": 227.2,
+        "P50": 60.0,
+        "P90": 532.8,
+        "P99": 1111.5,
+        "P99.9": 2694.1,
+        "max": 4152.2
+      },
+      "mediane_sans_pauses": {
+        "min": 12.7,
+        "moy": 227.2,
+        "P50": 60.0,
+        "P90": 532.8,
+        "P99": 1111.5,
+        "P99.9": 2694.1,
+        "max": 4152.2
+      },
+      "meilleur_lancement": {
+        "min": 12.7,
+        "moy": 227.2,
+        "P50": 50.5,
+        "P90": 532.8,
+        "P99": 1039.2,
+        "P99.9": 1674.1,
+        "max": 2553.9
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "irq",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 11.2,
+        "moy": 267.3,
+        "P50": 42.7,
+        "P90": 757.9,
+        "P99": 1582.2,
+        "P99.9": 3590.8,
+        "max": 4947.7
+      },
+      "mediane_sans_pauses": {
+        "min": 11.2,
+        "moy": 267.3,
+        "P50": 42.7,
+        "P90": 757.9,
+        "P99": 1582.2,
+        "P99.9": 3590.8,
+        "max": 4947.7
+      },
+      "meilleur_lancement": {
+        "min": 13.3,
+        "moy": 108.4,
+        "P50": 42.7,
+        "P90": 172.1,
+        "P99": 917.4,
+        "P99.9": 1260.0,
+        "max": 1806.6
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "irq",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 22.2,
+        "moy": 428.8,
+        "P50": 95.8,
+        "P90": 1081.0,
+        "P99": 1590.9,
+        "P99.9": 3564.2,
+        "max": 3923.0
+      },
+      "mediane_sans_pauses": {
+        "min": 22.2,
+        "moy": 428.8,
+        "P50": 95.8,
+        "P90": 1081.0,
+        "P99": 1590.9,
+        "P99.9": 3564.2,
+        "max": 3923.0
+      },
+      "meilleur_lancement": {
+        "min": 27.6,
+        "moy": 86.3,
+        "P50": 66.4,
+        "P90": 127.3,
+        "P99": 552.7,
+        "P99.9": 824.8,
+        "max": 866.8
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "irq-charge",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 12.1,
+        "moy": 69.8,
+        "P50": 30.3,
+        "P90": 165.4,
+        "P99": 453.7,
+        "P99.9": 980.9,
+        "max": 2837.6
+      },
+      "mediane_sans_pauses": {
+        "min": 12.1,
+        "moy": 69.8,
+        "P50": 30.3,
+        "P90": 165.4,
+        "P99": 453.7,
+        "P99.9": 980.9,
+        "max": 2837.6
+      },
+      "meilleur_lancement": {
+        "min": 11.1,
+        "moy": 69.8,
+        "P50": 33.2,
+        "P90": 165.4,
+        "P99": 453.7,
+        "P99.9": 980.9,
+        "max": 2808.0
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "irq-charge",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 1,
+      "mediane": {
+        "min": 4.4,
+        "moy": 143.2,
+        "P50": 24.3,
+        "P90": 527.7,
+        "P99": 883.4,
+        "P99.9": 1509.8,
+        "max": 9314.4
+      },
+      "mediane_sans_pauses": {
+        "min": 4.9,
+        "moy": 100.1,
+        "P50": 23.9,
+        "P90": 325.35,
+        "P99": 755.75,
+        "P99.9": 1446.35,
+        "max": 5417.849999999999
+      },
+      "meilleur_lancement": {
+        "min": 5.4,
+        "moy": 57.0,
+        "P50": 23.5,
+        "P90": 123.0,
+        "P99": 628.1,
+        "P99.9": 1382.9,
+        "max": 1521.3
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "irq-charge",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 0,
+      "mediane": {
+        "min": 24.8,
+        "moy": 230.4,
+        "P50": 223.4,
+        "P90": 444.8,
+        "P99": 1074.1,
+        "P99.9": 1732.5,
+        "max": 1765.9
+      },
+      "mediane_sans_pauses": {
+        "min": 24.8,
+        "moy": 230.4,
+        "P50": 223.4,
+        "P90": 444.8,
+        "P99": 1074.1,
+        "P99.9": 1732.5,
+        "max": 1765.9
+      },
+      "meilleur_lancement": {
+        "min": 12.7,
+        "moy": 62.7,
+        "P50": 39.6,
+        "P90": 101.0,
+        "P99": 386.5,
+        "P99.9": 582.9,
+        "max": 601.0
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "sans-charge",
+      "politique": "deadline",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 0.5,
+        "moy": 1318.6,
+        "P50": 451.7,
+        "P90": 3971.3,
+        "P99": 9993.0,
+        "P99.9": 34792.6,
+        "max": 73130.2
+      },
+      "mediane_sans_pauses": {
+        "min": 0.6,
+        "moy": 480.3,
+        "P50": 383.0,
+        "P90": 957.5,
+        "P99": 2223.8,
+        "P99.9": 4231.3,
+        "max": 4364.7
+      },
+      "meilleur_lancement": {
+        "min": 0.6,
+        "moy": 480.3,
+        "P50": 383.0,
+        "P90": 957.5,
+        "P99": 2223.8,
+        "P99.9": 4231.3,
+        "max": 4364.7
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "sans-charge",
+      "politique": "fifo",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 72.2,
+        "moy": 1199.6,
+        "P50": 513.9,
+        "P90": 1144.7,
+        "P99": 15505.3,
+        "P99.9": 55858.2,
+        "max": 65544.5
+      },
+      "mediane_sans_pauses": {
+        "min": 72.2,
+        "moy": 584.1,
+        "P50": 513.9,
+        "P90": 1144.7,
+        "P99": 1506.1,
+        "P99.9": 1797.1,
+        "max": 1846.2
+      },
+      "meilleur_lancement": {
+        "min": 72.2,
+        "moy": 584.1,
+        "P50": 513.9,
+        "P90": 1144.7,
+        "P99": 1506.1,
+        "P99.9": 1797.1,
+        "max": 1846.2
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "sans-charge",
+      "politique": "other",
+      "n_lancements": 3,
+      "n_suspects": 1,
+      "mediane": {
+        "min": 118.8,
+        "moy": 725.1,
+        "P50": 666.3,
+        "P90": 1228.3,
+        "P99": 1618.3,
+        "P99.9": 3096.9,
+        "max": 6659.1
+      },
+      "mediane_sans_pauses": {
+        "min": 85.15,
+        "moy": 714.85,
+        "P50": 649.5,
+        "P90": 1225.85,
+        "P99": 1597.1999999999998,
+        "P99.9": 2501.0,
+        "max": 4329.1
+      },
+      "meilleur_lancement": {
+        "min": 51.5,
+        "moy": 704.6,
+        "P50": 632.7,
+        "P90": 1228.3,
+        "P99": 1576.1,
+        "P99.9": 1905.1,
+        "max": 1999.1
+      }
+    },
+    {
+      "noyau": "6.12.115+deb13.1-rt-amd64",
+      "type_noyau": "PREEMPT_RT",
+      "mode": "sans-charge",
+      "politique": "rr",
+      "n_lancements": 3,
+      "n_suspects": 2,
+      "mediane": {
+        "min": 75.1,
+        "moy": 1165.7,
+        "P50": 563.5,
+        "P90": 1199.7,
+        "P99": 9710.7,
+        "P99.9": 66104.1,
+        "max": 74536.6
+      },
+      "mediane_sans_pauses": {
+        "min": 73.8,
+        "moy": 669.8,
+        "P50": 543.6,
+        "P90": 1199.7,
+        "P99": 2780.9,
+        "P99.9": 3762.1,
+        "max": 4878.0
+      },
+      "meilleur_lancement": {
+        "min": 73.8,
+        "moy": 669.8,
+        "P50": 543.6,
+        "P90": 1199.7,
+        "P99": 2780.9,
+        "P99.9": 3762.1,
+        "max": 4878.0
+      }
+    }
+  ],
+  "mlockall": {
+    "6.12.115+deb13.1-amd64": [
+      {
+        "charge": "aucune",
+        "placement": "libre",
+        "mlock": "non",
+        "n": 3,
+        "p50_us_med": 33.4,
+        "p99_us_med": 854.6,
+        "max_us_med": 1920.6,
+        "fautes_mineures_med": 3.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "aucune",
+        "placement": "libre",
+        "mlock": "oui",
+        "n": 3,
+        "p50_us_med": 314.7,
+        "p99_us_med": 1013.3,
+        "max_us_med": 2593.0,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "aucune",
+        "placement": "cpu1",
+        "mlock": "non",
+        "n": 3,
+        "p50_us_med": 20.9,
+        "p99_us_med": 67.6,
+        "max_us_med": 189.5,
+        "fautes_mineures_med": 2.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "aucune",
+        "placement": "cpu1",
+        "mlock": "oui",
+        "n": 3,
+        "p50_us_med": 20.8,
+        "p99_us_med": 61.8,
+        "max_us_med": 134.5,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "libre",
+        "mlock": "non",
+        "n": 3,
+        "p50_us_med": 146.5,
+        "p99_us_med": 839.6,
+        "max_us_med": 5787.4,
+        "fautes_mineures_med": 3.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "libre",
+        "mlock": "oui",
+        "n": 3,
+        "p50_us_med": 157.2,
+        "p99_us_med": 604.1,
+        "max_us_med": 1828.1,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "cpu1",
+        "mlock": "non",
+        "n": 3,
+        "p50_us_med": 9.0,
+        "p99_us_med": 42.5,
+        "max_us_med": 409.7,
+        "fautes_mineures_med": 2.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "cpu1",
+        "mlock": "oui",
+        "n": 3,
+        "p50_us_med": 8.7,
+        "p99_us_med": 28.3,
+        "max_us_med": 434.7,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      }
+    ],
+    "6.12.115+deb13.1-rt-amd64": [
+      {
+        "charge": "aucune",
+        "placement": "libre",
+        "mlock": "non",
+        "n": 5,
+        "p50_us_med": 115.1,
+        "p99_us_med": 2052.0,
+        "max_us_med": 3575.7,
+        "fautes_mineures_med": 3.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "aucune",
+        "placement": "libre",
+        "mlock": "oui",
+        "n": 5,
+        "p50_us_med": 82.3,
+        "p99_us_med": 1547.3,
+        "max_us_med": 2818.9,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "aucune",
+        "placement": "cpu1",
+        "mlock": "non",
+        "n": 5,
+        "p50_us_med": 89.8,
+        "p99_us_med": 214.0,
+        "max_us_med": 1299.3,
+        "fautes_mineures_med": 2.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "aucune",
+        "placement": "cpu1",
+        "mlock": "oui",
+        "n": 5,
+        "p50_us_med": 89.0,
+        "p99_us_med": 210.0,
+        "max_us_med": 1107.0,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "libre",
+        "mlock": "non",
+        "n": 5,
+        "p50_us_med": 13.5,
+        "p99_us_med": 318.6,
+        "max_us_med": 767.9,
+        "fautes_mineures_med": 2.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "libre",
+        "mlock": "oui",
+        "n": 5,
+        "p50_us_med": 25.9,
+        "p99_us_med": 549.8,
+        "max_us_med": 2544.9,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "cpu1",
+        "mlock": "non",
+        "n": 5,
+        "p50_us_med": 20.1,
+        "p99_us_med": 51.9,
+        "max_us_med": 3253.5,
+        "fautes_mineures_med": 3.0,
+        "fautes_majeures_med": 0.0
+      },
+      {
+        "charge": "vm",
+        "placement": "cpu1",
+        "mlock": "oui",
+        "n": 5,
+        "p50_us_med": 12.6,
+        "p99_us_med": 38.9,
+        "max_us_med": 524.7,
+        "fautes_mineures_med": 0.0,
+        "fautes_majeures_med": 0.0
+      }
+    ]
+  },
+  "affinite": {
+    "6.12.115+deb13.1-amd64": [
+      {
+        "scenario": "libre",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 26.5,
+        "p99_us_med": 1116.7,
+        "max_us_med": 2067.5,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      },
+      {
+        "scenario": "taskset_cpu0",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 22.7,
+        "p99_us_med": 114.3,
+        "max_us_med": 411.6,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      },
+      {
+        "scenario": "taskset_cpu1",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 21.6,
+        "p99_us_med": 154.3,
+        "max_us_med": 337.0,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      },
+      {
+        "scenario": "cpu1_irq_sur_cpu0",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 21.6,
+        "p99_us_med": 185.1,
+        "max_us_med": 1149.0,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      }
+    ],
+    "6.12.115+deb13.1-rt-amd64": [
+      {
+        "scenario": "libre",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 46.5,
+        "p99_us_med": 559.2,
+        "max_us_med": 1750.3,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      },
+      {
+        "scenario": "taskset_cpu0",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 39.0,
+        "p99_us_med": 245.9,
+        "max_us_med": 1537.0,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      },
+      {
+        "scenario": "taskset_cpu1",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 34.2,
+        "p99_us_med": 256.0,
+        "max_us_med": 853.6,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      },
+      {
+        "scenario": "cpu1_irq_sur_cpu0",
+        "charge": "aucune",
+        "n": 3,
+        "p50_us_med": 39.6,
+        "p99_us_med": 301.1,
+        "max_us_med": 1568.9,
+        "fautes_mineures_med": null,
+        "fautes_majeures_med": null
+      }
+    ]
+  }
+}
