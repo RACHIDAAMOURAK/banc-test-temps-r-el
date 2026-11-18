@@ -216,10 +216,10 @@ def ecrire_markdown(rapport, chemin, sans_pauses):
 # --------------------------------------------------------------------------
 # Graphiques
 # --------------------------------------------------------------------------
-def etiqueter(ax, barres, valeurs):
-    """Ecrit la valeur (us) au-dessus de chaque barre."""
+def etiqueter(ax, barres, valeurs, zeros=False):
+    """Ecrit la valeur au-dessus de chaque barre (les zeros seulement si zeros=True)."""
     for b, v in zip(barres, valeurs):
-        if v:
+        if v or zeros:
             ax.annotate(f"{v:.0f}", (b.get_x() + b.get_width() / 2, v),
                         ha="center", va="bottom", fontsize=7,
                         xytext=(0, 2), textcoords="offset points")
@@ -303,18 +303,26 @@ def graphique_mlock(rapport, dossier, plt):
                             v = e.get(cle) or 0
                 valeurs.append(v)
             positions = [i + (j - (len(barres) - 1) / 2) * largeur for i in range(len(categories))]
-            ax.bar(positions, valeurs, width=largeur * 0.95, color=COULEURS[t],
-                   hatch="//" if m == "oui" else None, edgecolor="white",
-                   label=f"{t}, mlock={m}")
+            objets = ax.bar(positions, valeurs, width=largeur * 0.95, color=COULEURS[t],
+                            hatch="//" if m == "oui" else None, edgecolor="white",
+                            label=f"{t}, mlock={m}")
+            etiqueter(ax, objets, valeurs, zeros=not log)
         if log:
             ax.set_yscale("log")
+            ax.set_ylim(bottom=1)
+            haut = max((b.get_height() for c in ax.containers for b in c), default=1)
+            ax.set_ylim(top=haut * 4)
+        else:
+            haut = max((b.get_height() for c in ax.containers for b in c), default=1)
+            ax.set_ylim(0, haut * 1.2 if haut else 1)
         ax.set_xticks(range(len(categories)))
         ax.set_xticklabels([f"{c}\n{p}" for c, p in categories])
         ax.set_title(titre)
         ax.grid(axis="y", alpha=0.3)
-    axes[0].legend(fontsize=8)
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, loc="lower center", ncol=4, fontsize=8)
     fig.suptitle("Effet de mlockall (irq_sim, SCHED_FIFO 80) - mediane des essais")
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0.1, 1, 1))
     chemin = dossier / "mlockall.png"
     fig.savefig(chemin, dpi=150)
     plt.close(fig)
@@ -349,16 +357,21 @@ def graphique_affinite(rapport, dossier, plt):
                             v = e.get("p99_us_med") or 0
                 valeurs.append(v)
             positions = [i + (j - (len(types) - 1) / 2) * largeur for i in range(len(scenarios))]
-            ax.bar(positions, valeurs, width=largeur * 0.95, label=t, color=COULEURS[t])
+            barres = ax.bar(positions, valeurs, width=largeur * 0.95, label=t, color=COULEURS[t])
+            etiqueter(ax, barres, valeurs)
         ax.set_yscale("log")
+        ax.set_ylim(bottom=1)
+        haut = max((b.get_height() for c in ax.containers for b in c), default=1)
+        ax.set_ylim(top=haut * 4)
         ax.set_xticks(range(len(scenarios)))
         ax.set_xticklabels([s.replace("_", "\n") for s in scenarios], fontsize=8)
         ax.set_title(f"charge : {charge}")
         ax.set_ylabel("P99 (us, echelle log)")
         ax.grid(axis="y", alpha=0.3)
-    axes[0][0].legend(title="Noyau")
+    h, l = axes[0][0].get_legend_handles_labels()
+    fig.legend(h, l, title="Noyau", loc="lower center", ncol=len(types))
     fig.suptitle("Effet du placement et de l'affinite des IRQ - P99, mediane des essais")
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0.12, 1, 1))
     chemin = dossier / "affinite.png"
     fig.savefig(chemin, dpi=150)
     plt.close(fig)
