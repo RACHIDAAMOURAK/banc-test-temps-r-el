@@ -253,10 +253,11 @@ def graphique_mode(rapport, mode, dossier, plt, sans_pauses):
         ax.set_title(titre)
         ax.set_ylabel("microsecondes (echelle log)")
         ax.grid(axis="y", alpha=0.3)
-    axes[0].legend(title="Noyau")
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, title="Noyau", loc="lower center", ncol=len(types))
     note = "mediane des lancements sans pause" if sans_pauses else "mediane de tous les lancements"
     fig.suptitle(f"{NOMS_MODES[mode]} - {note}")
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0.08, 1, 1))
     chemin = dossier / f"{mode}.png"
     fig.savefig(chemin, dpi=150)
     plt.close(fig)
@@ -354,6 +355,7 @@ def graphique_affinite(rapport, dossier, plt):
 
 # --------------------------------------------------------------------------
 def main():
+    global SEUIL_PAUSE_US
     ap = argparse.ArgumentParser(description="Rapport automatise JSON + graphiques")
     ap.add_argument("resultats", nargs="?", default="resultats",
                     help="dossier des resultats (defaut : resultats)")
@@ -361,11 +363,15 @@ def main():
                     help="dossier de sortie (defaut : rapport)")
     ap.add_argument("--sans-pauses", action="store_true",
                     help="utiliser la mediane des lancements sans pause (max <= 100 ms)")
+    ap.add_argument("--seuil-ms", type=float, default=SEUIL_PAUSE_US / 1000,
+                    help="un lancement dont le max depasse ce seuil (en ms) est suspect "
+                         "(pause de la VM) ; defaut : 100")
     ap.add_argument("--tout", action="store_true",
                     help="inclure aussi les noyaux d'une autre machine (ex. Ubuntu '-generic')")
     args = ap.parse_args()
     if not args.tout:
         IGNORER.append("generic")
+    SEUIL_PAUSE_US = args.seuil_ms * 1000
 
     racine = Path(args.resultats)
     if not racine.is_dir():
