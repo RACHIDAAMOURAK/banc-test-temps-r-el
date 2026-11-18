@@ -32,3 +32,8 @@ for f in resultats/*/sans-charge/fifo_*.txt; do
     awk '/^(P50|P99|max) /{printf "%s=%s  ", $1, $3}' "$f"
     echo
 done
+pause
+
+echo "=== 7. Rapport automatise (JSON + graphes) ==="
+python3 rapport.py --sans-pauses --seuil-ms 50
+xdg-open rapport/sans-charge.png >/dev/null 2>&1 &
