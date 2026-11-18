@@ -231,8 +231,9 @@ def graphique_mode(rapport, mode, dossier, plt, sans_pauses):
         return None
     politiques = [p for p in POLITIQUES if any(s["politique"] == p for s in entrees)]
     types = [t for t in ("standard", "PREEMPT_RT") if any(s["type_noyau"] == t for s in entrees)]
-    fig, axes = plt.subplots(1, 3, figsize=(13, 4.4))
+    fig, axes = plt.subplots(1, 3, figsize=(13, 4.8))
     largeur = 0.8 / len(types)
+    sans_filtre = []   # series ou tous les lancements sont suspects : on garde tout
     for ax, (cle, titre) in zip(axes, [("P50", "P50"), ("P99", "P99"), ("max", "Maximum")]):
         for j, t in enumerate(types):
             valeurs = []
@@ -241,13 +242,20 @@ def graphique_mode(rapport, mode, dossier, plt, sans_pauses):
                 if s is None:
                     valeurs.append(0)
                     continue
-                m = s["mediane_sans_pauses"] if (sans_pauses and s["mediane_sans_pauses"]) else s["mediane"]
+                if sans_pauses and s["mediane_sans_pauses"]:
+                    m = s["mediane_sans_pauses"]
+                else:
+                    m = s["mediane"]
+                    if sans_pauses and (t, p) not in sans_filtre:
+                        sans_filtre.append((t, p))
                 valeurs.append(m[cle] or 0)
             positions = [i + (j - (len(types) - 1) / 2) * largeur for i in range(len(politiques))]
             barres = ax.bar(positions, valeurs, width=largeur * 0.95, label=t, color=COULEURS[t])
             etiqueter(ax, barres, valeurs)
         ax.set_yscale("log")
         ax.set_ylim(bottom=1)   # base fixe a 1 us : les hauteurs restent comparables
+        haut = max((b.get_height() for c in ax.containers for b in c), default=1)
+        ax.set_ylim(top=haut * 4)
         ax.set_xticks(range(len(politiques)))
         ax.set_xticklabels([NOMS_POLITIQUES[p].replace("SCHED_", "") for p in politiques])
         ax.set_title(titre)
@@ -256,8 +264,12 @@ def graphique_mode(rapport, mode, dossier, plt, sans_pauses):
     h, l = axes[0].get_legend_handles_labels()
     fig.legend(h, l, title="Noyau", loc="lower center", ncol=len(types))
     note = "mediane des lancements sans pause" if sans_pauses else "mediane de tous les lancements"
-    fig.suptitle(f"{NOMS_MODES[mode]} - {note}")
-    fig.tight_layout(rect=(0, 0.08, 1, 1))
+    if sans_filtre:
+        noms = ", ".join(sorted({f"{t}/{NOMS_POLITIQUES[p].replace('SCHED_', '')}"
+                                 for t, p in sans_filtre}))
+        note += f"\n(tous les lancements sont suspects pour : {noms} - valeurs brutes, pauses incluses)"
+    fig.suptitle(f"{NOMS_MODES[mode]} - {note}", fontsize=10)
+    fig.tight_layout(rect=(0, 0.12, 1, 1))
     chemin = dossier / f"{mode}.png"
     fig.savefig(chemin, dpi=150)
     plt.close(fig)
