@@ -216,6 +216,15 @@ def ecrire_markdown(rapport, chemin, sans_pauses):
 # --------------------------------------------------------------------------
 # Graphiques
 # --------------------------------------------------------------------------
+def etiqueter(ax, barres, valeurs):
+    """Ecrit la valeur (us) au-dessus de chaque barre."""
+    for b, v in zip(barres, valeurs):
+        if v:
+            ax.annotate(f"{v:.0f}", (b.get_x() + b.get_width() / 2, v),
+                        ha="center", va="bottom", fontsize=7,
+                        xytext=(0, 2), textcoords="offset points")
+
+
 def graphique_mode(rapport, mode, dossier, plt, sans_pauses):
     entrees = [s for s in rapport["series"] if s["mode"] == mode]
     if not entrees:
@@ -235,8 +244,10 @@ def graphique_mode(rapport, mode, dossier, plt, sans_pauses):
                 m = s["mediane_sans_pauses"] if (sans_pauses and s["mediane_sans_pauses"]) else s["mediane"]
                 valeurs.append(m[cle] or 0)
             positions = [i + (j - (len(types) - 1) / 2) * largeur for i in range(len(politiques))]
-            ax.bar(positions, valeurs, width=largeur * 0.95, label=t, color=COULEURS[t])
+            barres = ax.bar(positions, valeurs, width=largeur * 0.95, label=t, color=COULEURS[t])
+            etiqueter(ax, barres, valeurs)
         ax.set_yscale("log")
+        ax.set_ylim(bottom=1)   # base fixe a 1 us : les hauteurs restent comparables
         ax.set_xticks(range(len(politiques)))
         ax.set_xticklabels([NOMS_POLITIQUES[p].replace("SCHED_", "") for p in politiques])
         ax.set_title(titre)
