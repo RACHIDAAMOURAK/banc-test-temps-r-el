@@ -1,6 +1,6 @@
 # Rapport de campagne - banc de test temps reel
 
-Genere le 2026-11-18T10:32:16. Valeurs en microsecondes (us).
+Genere le 2026-11-18T15:33:42. Valeurs en microsecondes (us).
 Un lancement est suspect (pause de la VM) si son maximum depasse 50 ms.
 
 ## Jitter, sans charge
